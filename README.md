@@ -11,7 +11,40 @@ Just insert these code snippet into the `head` tag.
     <html lang="zh-cmn-Hans">
 
     <head>        
-    <script>!function(){function g(){clearTimeout(a),setTimeout(h,300)}function h(){e.style.fontSize=20*i()/320+"px"}function i(){return window._screenSize=e.getBoundingClientRect(),window._screenSize.width}var a,b="addEventListener",c=document,d=window,e=c.documentElement,f="pageshow";c[b]("DOMContentLoaded",h),"on"+f in d?d[b](f,function(a){a.persisted&&g()}):d[b]("load",g),d[b]("resize",g)}();</script>
+    <script>
+    ;(function() {
+        var timer,
+            on = 'addEventListener',
+            d = document,
+            w = window,
+            doc = d.documentElement,
+            ps = 'pageshow';
+
+        d[on]('DOMContentLoaded', resizeFontSize);
+
+        if ('on' + ps in w)
+            w[on](ps, function(e) {
+                if (e.persisted) debouceResize();
+            });
+        else
+            w[on]("load", debouceResize);
+
+        w[on]("resize", debouceResize);
+
+        function debouceResize() {
+            clearTimeout(timer);
+            setTimeout(resizeFontSize, 300);
+        }
+
+        function resizeFontSize() {
+            doc.style.fontSize = getWidth() * 20 / 320 + "px";
+        }
+
+        function getWidth() {
+            return doc.getBoundingClientRect().width;
+        }
+    })();
+    </script>
     </head>
     <body></body>
     </html>
