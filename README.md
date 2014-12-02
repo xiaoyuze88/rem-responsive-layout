@@ -1,7 +1,7 @@
-rem-responsize-layout
+rem-responsive-layout
 =====================
 
-Code snippet for `rem` responsize layout for mobile, calculate screen width and use the font-size to make responsize happens
+Code snippet for `rem` responsive layout for mobile, calculate screen width and use the font-size to make responsive happens
 
 ## Usage
 
@@ -16,7 +16,7 @@ Just insert these code snippet into the `head` tag.
     <body></body>
     </html>
 
-Then it will handler the font-size for your responsize `rem` layout.
+Then it will handler the font-size for your responsive `rem` layout.
 
 These codes are modified and optimize for my own usage from [Jieyou](https://github.com/jieyou/rem_layout) and [Wintercn](https://github.com/amfe/lib.flexible).
 
