@@ -51,6 +51,6 @@ Just insert these code snippet into the `head` tag.
 
 Then it will handler the font-size for your responsive `rem` layout.
 
-These codes are modified and optimize for my own usage from [Jieyou](https://github.com/jieyou/rem_layout) and [Wintercn](https://github.com/amfe/lib.flexible).
+Code modified and optimized for my own usage from [Jieyou's](https://github.com/jieyou/rem_layout) and [Wintercn's](https://github.com/amfe/lib.flexible) code.
 
 Put it here for convenience.

@@ -10,7 +10,9 @@
         d = document,
         w = window,
         doc = d.documentElement,
-        ps = 'pageshow';
+        ps = 'pageshow',
+        lastWidth;
+        
 
     // caculate when DomContentLoaded
     d[on]('DOMContentLoaded', resizeFontSize);
@@ -31,12 +33,18 @@
     // debounce resize caculating
     function debouceResize() {
         clearTimeout(timer);
-        setTimeout(resizeFontSize, 300);
+        timer = setTimeout(resizeFontSize, 300);
     }
 
     // resize font size
     function resizeFontSize() {
-        doc.style.fontSize = getWidth() * 20 / 320 + "px";
+        var width = getWidth();
+        // Some Android will trigger more than one `resize` events when user are opening keyboard or some other stuff.
+        // So compare new width with the old one, only resize the font-size when window's width actually changed.
+        if(width != lastWidth) {
+            lastWidth = width;
+            doc.style.fontSize = lastWidth * 20 / 320 + "px";
+        }
     }
 
     // Use `getBoundingClientRect` instead of `window.innerWidth/document.documentElement.clientWidth` for more accuracy.
